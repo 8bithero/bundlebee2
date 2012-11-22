@@ -15,7 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Rails3BootstrapDeviseCancan
+module Bundlebee
   class Application < Rails::Application
 
     # don't generate RSpec tests for views and helpers
@@ -78,5 +78,9 @@ module Rails3BootstrapDeviseCancan
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Enable/uncomment when using Heroku.
+    # Forces your application to not access the DB or load models when precompiling your assets.
+    config.assets.initialize_on_precompile = false
   end
 end
