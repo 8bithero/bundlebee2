@@ -9,4 +9,13 @@ FactoryGirl.define do
     # required if the Devise Confirmable module is used
     # confirmed_at Time.now
   end
+
+  factory :developer do
+    name 'Developer User'
+    email 'dev@foo.com'
+    password 'foobar'
+    password_confirmation 'foobar'
+    # required if the Devise Confirmable module is used
+    # confirmed_at Time.now
+  end
 end

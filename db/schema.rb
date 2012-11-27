@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418171112) do
+ActiveRecord::Schema.define(:version => 20121026092530) do
+
+  create_table "apps", :force => true do |t|
+    t.string   "name",              :null => false
+    t.string   "bundle_id",         :null => false
+    t.integer  "developer_id",      :null => false
+    t.text     "description"
+    t.string   "icon_url"
+    t.integer  "points",            :null => false
+    t.integer  "rating"
+    t.integer  "number_of_ratings"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "apps", ["bundle_id"], :name => "index_apps_on_bundle_id", :unique => true
+  add_index "apps", ["developer_id"], :name => "index_apps_on_developer_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +39,17 @@ ActiveRecord::Schema.define(:version => 20120418171112) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "sandbox_items", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "app_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sandbox_items", ["app_id"], :name => "index_sandbox_items_on_app_id"
+  add_index "sandbox_items", ["user_id", "app_id"], :name => "index_sandbox_items_on_user_id_and_app_id", :unique => true
+  add_index "sandbox_items", ["user_id"], :name => "index_sandbox_items_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
