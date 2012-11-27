@@ -8,4 +8,5 @@ class App < ActiveRecord::Base
 
   #has_many :sandbox_items
   #has_many :users, through: :apps_users
+  belongs_to :developer, class_name: "User", foreign_key: "developer_id"
 end

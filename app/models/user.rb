@@ -23,7 +23,8 @@ class User < ActiveRecord::Base
   # ASSOCIATIONS
   #-----------------------------------------------------------------------
   has_many :sandbox_items
-  has_many :apps, through: :sandbox_items
+  has_many :installed_apps, through: :sandbox_items
+  has_many :apps, foreign_key: :developer_id
 
 
   # METHODS
