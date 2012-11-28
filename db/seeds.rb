@@ -77,3 +77,30 @@ puts 'New Developer created: ' << vdev.name
 vadmin.add_role :admin
 vuser.add_role  :user
 vdev.add_role   :developer
+
+
+# CREATE APPS
+
+puts "------------------------------------"
+puts 'CREATING APPS'
+puts "------------------------------------"
+puts 'pdev apps'
+puts "------------------------------------"
+pdev_apps = pdev.apps.create([{ name: 'Angry Birds',   bundle_id: 'com.rovio.angrybirds', points: "1" },
+                              { name: 'Cut The Rope',  bundle_id: 'com.zeptolab.ctr.ads', points: "2" },
+                              { name: 'Temple Run',    bundle_id: 'com.imangi.templerun', points: "3" }])
+pdev_apps.each { |app| puts 'New app created: ' << app.name }
+
+puts "------------------------------------"
+puts 'adev apps'
+puts "------------------------------------"
+adev_apps = adev.apps.create([{ name: 'Fruit Ninja',   bundle_id: 'com.halfbrick.fruitninjafree', points: "1" },
+                              { name: 'Doodle Jump',   bundle_id: 'com.realarcade.DOJ',           points: "1" }])
+adev_apps.each { |app| puts 'New app created: ' << app.name }
+
+puts "------------------------------------"
+puts 'vdev apps'
+puts "------------------------------------"
+vdev_apps = vdev.apps.create([{ name: 'Worms',         bundle_id: 'com.ea.worms_row', points: "3" },
+                              { name: 'World Of Goo',  bundle_id: 'com.twodboy.worldofgoofull',    points: "2" }])
+vdev_apps.each { |app| puts 'New app created: ' << app.name }
