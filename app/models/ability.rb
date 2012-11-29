@@ -8,6 +8,9 @@ class Ability
 
     elsif user.has_role? :developer
       can :manage, App, :developer_id => user.id
+
+    elsif user.has_role? :user
+      can :read, App
     end
     # Define abilities for the passed in user here. For example:
     #

@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
 
   # METHODS
   #-----------------------------------------------------------------------
+
+  # User
+  #-----------------------------------------------------------------------
   def has_app?(the_app)
     sandbox_items.find_by_app_id(the_app.id)
   end
@@ -40,4 +43,11 @@ class User < ActiveRecord::Base
   def remove_app!(the_app)
     sandbox_items.find_by_app_id(the_app.id).destroy
   end
+
+  # Developer
+  #-----------------------------------------------------------------------
+
+  # Admin
+  #-----------------------------------------------------------------------
+  
 end
