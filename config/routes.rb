@@ -6,4 +6,8 @@ Bundlebee::Application.routes.draw do
   devise_for :users
   resources :users
   resources :apps
+
+  namespace :dev do
+    resources :apps
+  end
 end

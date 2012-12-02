@@ -1,0 +1,9 @@
+<% if signed_in? %>
+  <div id="sandbox_form">
+  <% if current_user.has_app?(app) %>
+    <%= render 'remove_from_sandbox', locals = { :app => app } %>
+  <% else %>
+    <%= render 'add_to_sandbox', locals = { :app => app } %>
+  <% end %>
+  </div>
+<% end %>

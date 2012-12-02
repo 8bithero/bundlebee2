@@ -1,0 +1,22 @@
+<h1>All available applications <small>(<%= @apps.count %>)</small></h1><br/>
+<table id="all-apps" class="table table-striped table-hover">
+  <theader>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Bundle ID</th>
+    <% if current_user.has_role? :user %>
+      <th>Sandbox</th>
+    <% end %>
+  </theader>
+  
+  <% @apps.each do |app| %>
+    <tr>
+      <td><%= app.id %></td>
+      <td><%= app.name %></td>
+      <td><%= app.bundle_id %></td>
+      <% if current_user.has_role? :user %>
+        <td><%= render('sandbox_form', locals = { :app => app }) if signed_in? %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem "bootstrap-sass", ">= 2.1.0.0"
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
+gem 'cancan_namespace'
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.3"
 

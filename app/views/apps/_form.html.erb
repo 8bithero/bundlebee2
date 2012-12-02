@@ -1,0 +1,12 @@
+<%= form_for(@app) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :bundle_id %>
+    <%= f.text_field :bundle_id %>
+  </p>
+  <%= f.submit %>
+<% end %>

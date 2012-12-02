@@ -1,13 +1,17 @@
 class Ability
-  include CanCan::Ability
+  #include CanCan::Ability
+  include CanCanNamespace::Ability
 
-  def initialize(user)
+  def initialize(user, context = nil)
+    @context = context
+
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
 
     elsif user.has_role? :developer
-      can :manage, App, :developer_id => user.id
+      can :manage, App, :developer_id => user.id, :context => :dev
+      can :read, App
 
     elsif user.has_role? :user
       can :read, App
